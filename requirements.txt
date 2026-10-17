@@ -1,0 +1,23 @@
+# PIN EVERYTHING. Two separate reproducibility traps live in this file.
+#
+# 1. The engine is pinned to an exact git commit, NOT to a PyPI release.
+#    PyPI's newest catanatron is 3.2.1, and 3.2.1 has a DIFFERENT ACTION SPACE from the build we
+#    score with: `DISCARD` carries no value where ours is `DISCARD_RESOURCE` carrying a resource,
+#    and `MOVE_ROBBER` is a 3-tuple where ours is a 2-tuple. An agent written against 3.2.1 emits
+#    actions our scorer rejects. `pip install catanatron` is therefore WRONG. Use this file.
+#
+# 2. catanatron declares `networkx` with no version bound. We pin it so that everybody runs the
+#    same graph code.
+#
+# One thing this file CANNOT pin is your Python version. Use Python 3.11: catanatron 3.3.0, numpy,
+# scipy and scikit-learn need at least 3.11, and we score every submission on 3.11.
+catanatron @ git+https://github.com/bcollazo/catanatron.git@d3f4ad05bb78d8b2309631d6d3cfa8fcb6fda816
+networkx==3.6.1
+psutil==7.2.2
+# The packages an agent may import on our machine, at the versions installed there. Nothing else is.
+# PyTorch on Linux: install the CPU build, or pip fetches the much larger CUDA build:
+#   pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+numpy==2.4.6
+scipy==1.17.1
+scikit-learn==1.9.1
+torch==2.8.0

@@ -1,0 +1,15 @@
+{
+  "public_vps": 300000000000000.0,
+  "production": 100000000.0,
+  "enemy_production": -100000000.0,
+  "num_tiles": 1.0,
+  "reachable_production_0": 0.0,
+  "reachable_production_1": 10000.0,
+  "buildable_nodes": 1000.0,
+  "longest_road": 10.0,
+  "hand_synergy": 100.0,
+  "hand_resources": 1.0,
+  "discard_penalty": -5.0,
+  "hand_devs": 10.0,
+  "army_size": 10.1
+}
